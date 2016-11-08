@@ -32,10 +32,10 @@ header p {
     height: 100px;
 }
 
-#board th.active-cell:hover {
-    background-color: #676767;
-    cursor: pointer;
-}
+/*#board th.active-cell:hover {*/
+    /*background-color: #676767;*/
+    /*cursor: pointer;*/
+/*}*/
 
 #board tr:first-child th {
     border-top: 0;
