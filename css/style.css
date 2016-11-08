@@ -64,6 +64,15 @@ header p {
     border-radius: calc(100%/2);
 }
 
+.circle-shadow {
+    border: 14px solid #c8c8c8;
+    display: block;
+    width: 49px;
+    height: 49px;
+    margin: auto;
+    border-radius: calc(100%/2);
+}
+
 .cross {
     width: 90px;
     height: 90px;
@@ -88,6 +97,35 @@ header p {
 .cross:after {
     top: 56%;
     height: 15px;
+    margin-left: -45%;
+    margin-top: -15%;
+    width: 100%;
+}
+
+.cross-shadow {
+    width: 90px;
+    height: 90px;
+    position: relative;
+    transform: rotate(45deg);
+}
+
+.cross-shadow:before, .cross-shadow:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: #c8c8c8;
+}
+
+.cross-shadow:before {
+    left: 60%;
+    width: 17px;
+    margin-left: -15%;
+    height: 100%;
+}
+
+.cross-shadow:after {
+    top: 55%;
+    height: 17px;
     margin-left: -45%;
     margin-top: -15%;
     width: 100%;
