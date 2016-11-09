@@ -1,44 +1,39 @@
+"use strict";
+
 (function () {
-    var cells = document.getElementsByClassName( 'active-cell' );
-    var sign = 'circle';
+    var player_sign = 'circle',
+        cells;
 
-    for ( var i = cells.length; i > 0 ; i-- ) {
-        cells[i-1].addEventListener( 'mouseenter', function ( evt ) {
-            if ( this.classList.contains( 'active-cell' ) ) {
-                console.log( 'mouseenter' );
 
-                this.getElementsByTagName('div')[0].classList.add( sign + '-shadow' );
-            }
-        }, false );
+    function mouseEnterEvent() {
+        if ( this.classList.contains( 'active-cell' ) ) {
+            this.firstChild.classList.add( player_sign + '-shadow' );
+        }
+    }
 
-        cells[i-1].addEventListener( 'mouseleave', function ( evt ) {
-            if ( this.classList.contains( 'active-cell' ) ) {
-                console.log( 'mouseleave' );
+    function mouseLeaveEvent() {
+        if ( this.classList.contains( 'active-cell' ) ) {
+            this.firstChild.classList.remove( player_sign + '-shadow' );
+        }
+    }
 
-                this.getElementsByTagName( 'div' )[0].classList.remove( sign + '-shadow' );
-            }
-        }, false );
+    function mouseClickEvent() {
+        if ( this.classList.contains( 'active-cell' ) ) {
+            let div = this.firstChild;
 
-        cells[i-1].addEventListener( 'click', function (evt) {
-            if ( this.classList.contains( 'active-cell' ) ) {
-                console.log( 'click' );
+            div.classList.remove( player_sign + '-shadow' );
+            div.classList.add( player_sign );
+            this.classList.remove( 'active-cell' );
 
-                let div = this.getElementsByTagName( 'div' )[0];
-                div.classList.remove( sign + '-shadow' );
-                div.classList.add( sign );
-                this.classList.remove( 'active-cell' );
-
-                if ( sign === 'circle' ) {
-                    sign = 'cross';
-                } else {
-                    sign = 'circle';
-                }
-
-            }
-        }, false);
-
+        }
     }
 
 
+    cells = document.getElementsByClassName( 'active-cell' );
 
+    for ( let i = cells.length-1; i >= 0 ; i-- ) {
+        cells[i].addEventListener( 'mouseenter', mouseEnterEvent, false );
+        cells[i].addEventListener( 'mouseleave', mouseLeaveEvent, false );
+        cells[i].addEventListener( 'click', mouseClickEvent.bind(cells[i]), false );
+    }
 })();

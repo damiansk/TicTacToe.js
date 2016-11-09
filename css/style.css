@@ -26,30 +26,29 @@ header p {
     font-size: 80px;
 }
 
-#board td, #board th {
+#board td {
     border: 8px solid #ececec;
     width: 100px;
     height: 100px;
 }
 
-/*#board th.active-cell:hover {*/
-    /*background-color: #676767;*/
-    /*cursor: pointer;*/
-/*}*/
+#board td.active-cell:hover {
+    cursor: pointer;
+}
 
-#board tr:first-child th {
+#board tr:first-child td {
     border-top: 0;
 }
 
-#board tr:last-child th {
+#board tr:last-child td {
     border-bottom: 0;
 }
 
-#board tr th:first-child {
+#board tr td:first-child {
     border-left: 0;
 }
 
-#board tr th:last-child {
+#board tr td:last-child {
     border-right: 0;
 }
 
@@ -65,7 +64,7 @@ header p {
 }
 
 .circle-shadow {
-    border: 14px solid #c8c8c8;
+    border: 14px solid #b6b6b6;
     display: block;
     width: 49px;
     height: 49px;
@@ -113,7 +112,7 @@ header p {
     content: "";
     position: absolute;
     z-index: -1;
-    background: #c8c8c8;
+    background: #b6b6b6;
 }
 
 .cross-shadow:before {
