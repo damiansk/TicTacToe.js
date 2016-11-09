@@ -5,6 +5,14 @@
         cells;
 
 
+    function swapPlayer() {
+        if ( player_sign === 'circle' ) {
+            player_sign = 'cross';
+        } else {
+            player_sign = 'circle';
+        }
+    }
+
     function mouseEnterEvent() {
         if ( this.classList.contains( 'active-cell' ) ) {
             this.firstChild.classList.add( player_sign + '-shadow' );
@@ -25,6 +33,7 @@
             div.classList.add( player_sign );
             this.classList.remove( 'active-cell' );
 
+            swapPlayer();
         }
     }
 
