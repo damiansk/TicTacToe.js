@@ -10,6 +10,14 @@
             7, 8, 9
         ];
 
+    function blockBoard() {
+        cells = document.getElementsByClassName( 'active-cell' );
+
+        for ( let i = cells.length-1; i >= 0; i-- ) {
+            cells[i].classList.remove( 'active-cell' );
+        }
+    }
+
     function checkWinner() {
         for ( let i = 0; i < 9; i += 3 ) {
             if ( board[i] === board[i+1] && board[i] === board[i+2] ) {
@@ -73,6 +81,7 @@
 
             if ( winner !== null ) {
                 alert( winner + ' win' );
+                blockBoard();
             } else {
                 swapPlayer();
             }
