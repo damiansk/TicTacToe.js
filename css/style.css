@@ -51,6 +51,12 @@ header p {
     border-right: 0;
 }
 
+.round-box {
+    width: 100px;
+    height: 100px;
+    margin: auto;
+}
+
 .sideboard {
     vertical-align: top;
     padding: 40px 10px;
