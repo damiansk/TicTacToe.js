@@ -93,6 +93,18 @@ header p {
     border-radius: calc(100%/2);
 }
 
+.circle-winner {
+    animation-name: green-circle;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes green-circle {
+    100% {
+        border-color: #00aa00;
+    }
+}
+
 .cross {
     width: 90px;
     height: 90px;
@@ -149,4 +161,17 @@ header p {
     margin-left: -45%;
     margin-top: -15%;
     width: 100%;
+}
+
+.cross-winner:before, .cross-winner:after {
+    content: "";
+    animation-name: green-cross;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes green-cross {
+    100% {
+        background: #00aa00;
+    }
 }
