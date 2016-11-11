@@ -2,8 +2,9 @@
 
 (function () {
     var player_sign = 'circle',
-        cells,
-        round = 0,
+        cells = document.getElementsByClassName( 'active-cell' ),
+        roundNumber = 0,
+        roundDiv = document.getElementById( 'round' ),
         board = [
             1, 2, 3,
             4, 5, 6,
@@ -39,7 +40,7 @@
             return board[2];
         }
 
-        if ( round === 9 ) {
+        if ( roundNumber === 9 ) {
             return 'nobody';
         }
 
@@ -48,9 +49,13 @@
 
     function swapPlayer() {
         if ( player_sign === 'circle' ) {
+            roundDiv.classList.remove( player_sign );
             player_sign = 'cross';
+            roundDiv.classList.add( player_sign );
         } else {
+            roundDiv.classList.remove( player_sign );
             player_sign = 'circle';
+            roundDiv.classList.add( player_sign );
         }
     }
 
@@ -75,7 +80,7 @@
             this.classList.remove( 'active-cell' );
 
             board[index] = player_sign;
-            round++;
+            roundNumber++;
 
             let winner = checkWinner();
 
@@ -88,8 +93,6 @@
         }
     }
 
-
-    cells = document.getElementsByClassName( 'active-cell' );
 
     for ( let i = cells.length-1; i >= 0 ; i-- ) {
         cells[i].addEventListener( 'mouseenter', mouseEnterEvent, false );
