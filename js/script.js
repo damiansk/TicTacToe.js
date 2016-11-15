@@ -1,15 +1,15 @@
 "use strict";
 
 (function () {
-    var player_sign = 'circle',
-        cells = document.getElementsByTagName( 'td' ),
+    let player_sign = 'circle',
         roundNumber = 0,
-        roundDiv = document.getElementById( 'round' ),
         board = [
             1, 2, 3,
             4, 5, 6,
             7, 8, 9
         ];
+    const cells = document.getElementsByTagName('td'),
+        roundDiv = document.getElementById('round');
 
 
     function blockBoard() {
@@ -47,7 +47,7 @@
     }
 
     function showWinner( winnerCells ) {
-        var lengthCells = winnerCells.length;
+        let lengthCells = winnerCells.length;
 
         if ( lengthCells === 3 ) {
             document.getElementById( 'round-label' ).textContent = 'Wygrana:';

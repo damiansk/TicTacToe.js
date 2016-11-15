@@ -51,6 +51,20 @@ header p {
     border-right: 0;
 }
 
+#reset-btn {
+    width: auto;
+    border-radius: 15px;
+    font-size: 22px;
+    font-family: Arial, serif;
+    background-color: #6b6b6b;
+}
+
+#reset-btn:hover {
+    color: white;
+    background-color: #7a7a7a;
+    cursor: pointer;
+}
+
 .round-box {
     width: 100px;
     height: 100px;
