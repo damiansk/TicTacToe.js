@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 (function () {
     let player_sign = 'circle',
@@ -8,8 +8,10 @@
             4, 5, 6,
             7, 8, 9
         ];
-    const cells = document.getElementsByTagName('td'),
-        roundDiv = document.getElementById('round');
+
+    const cells = document.getElementsByTagName( 'td' ),
+        roundDiv = document.getElementById( 'round' ),
+        resetBtn = document.getElementById( 'reset-btn' );
 
 
     function blockBoard() {
@@ -80,6 +82,30 @@
     }
 
 
+    function resetGame() {
+        player_sign = 'circle';
+        roundNumber = 0;
+        board = [
+            1, 2, 3,
+            4, 5, 6,
+            7, 8, 9
+        ];
+
+        // TODO Make regex to remove all actuall classes and add add active-cell
+        for ( let i = cells.length-1; i >= 0 ; i-- ) {
+            cells[i].firstChild.classList.remove( 'circle' );
+            cells[i].firstChild.classList.remove( 'circle-winner' );
+            cells[i].firstChild.classList.remove( 'cross' );
+            cells[i].firstChild.classList.remove( 'cross-winner' );
+            cells[i].classList.add( 'active-cell' );
+        }
+
+        roundDiv.classList.add( player_sign );
+
+        document.getElementById( 'round-label' ).textContent = 'Runda:';
+
+    }
+    
     function mouseEnterEvent() {
         if ( this.classList.contains( 'active-cell' ) ) {
             this.firstChild.classList.add( player_sign + '-shadow' );
@@ -108,6 +134,10 @@
             if ( winner !== null ) {
                 showWinner( winner );
                 blockBoard();
+
+                setTimeout(function () {
+                    resetBtn.style.display = 'block';
+                }, 1900);
             } else {
                 swapPlayer();
             }
@@ -120,4 +150,6 @@
         cells[i].addEventListener( 'mouseleave', mouseLeaveEvent, false );
         cells[i].addEventListener( 'click', mouseClickEvent.bind( cells[i], i ), false );
     }
+
+    resetBtn.addEventListener( 'click', resetGame, false );
 })();
